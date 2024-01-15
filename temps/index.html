@@ -1,0 +1,17 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+    <form method="post" action="index/treatment">
+        <label for="code">Saisissez le code</label>
+        <input type="text" name="code" id="code" placeholder="Your code.." required autofocus>
+        <button type="submit">Envoyer</button>
+    </form>
+</body>
+</html>
+{{end}}
