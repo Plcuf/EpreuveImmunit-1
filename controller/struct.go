@@ -1,5 +1,7 @@
 package controller 
 
-type Route struct {
+type Decryptage struct {
 	Code string
 }
+
+var act Decryptage
