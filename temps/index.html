@@ -5,13 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+   
 </head>
 <body>
-    <form method="post" action="index/treatment">
-        <label for="code">Saisissez le code</label>
-        <input type="text" name="code" id="code" placeholder="Your code.." required autofocus>
-        <button type="submit">Envoyer</button>
-    </form>
+    <div class="container">
+        <form method="post" action="index/treatment">
+            <label for="code">Saisissez le code</label>
+            <input type="text"name="code" id="inputText" placeholder="Entrez votre texte ici">
+            <button type="submit" id="decryptButton">Déchiffrer</button> 
+        </form>
+        <div id="result" class="hidden">{{.Code}}</div>
+        </div>
+        <script>
+           document.getElementById('decryptButton').addEventListener('click', function() {
+    const inputText = document.getElementById('inputText').value;
+    const resultDiv = document.getElementById('result');
+
+let countdown = 3;
+resultDiv.textContent = countdown;
+resultDiv.classList.remove('hidden');
+
+const interval = setInterval(() => {
+    countdown--;
+    resultDiv.textContent = countdown;
+
+    if (countdown <= 0) {
+        clearInterval(interval);
+        // Ici, vous pouvez ajouter la logique de déchiffrement en fonction de inputText
+        resultDiv.textContent = "Résultat du déchiffrement : " + inputText; // Remplacez inputText par le résultat réel
+    }
+}, 1000); // Met à jour toutes les 1 seconde
+});
+        </script>
 </body>
 </html>
 {{end}}
