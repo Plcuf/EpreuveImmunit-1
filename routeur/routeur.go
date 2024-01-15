@@ -13,7 +13,6 @@ func InitServe() {
 	Lorsque on se situe sur une route la fonction associé va s'activé */
 	http.HandleFunc("/index", ctrl.Index)
 	http.HandleFunc("/index/treatment", ctrl.InitIndex)
-	http.HandleFunc("/result", ctrl.Result)
 
 
 	//Pour relier les assets(img/fonts/css) aux templates

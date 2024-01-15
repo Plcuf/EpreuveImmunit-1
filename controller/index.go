@@ -6,15 +6,13 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	InitTemp.Temp.ExecuteTemplate(w, "index", nil)
+	InitTemp.Temp.ExecuteTemplate(w, "index", act)
 }
 
-func InitIndex(w http.ResponseWriter, r *http.Request){
+func InitIndex(w http.ResponseWriter, r *http.Request) {
 	act.Code = r.FormValue("code")
-	dechiffrage(act.Code)
-	http.Redirect(w, r, "/result", http.StatusMovedPermanently)
+	act.Code = dechiffrage(act.Code)
+	http.Redirect(w, r, "/index", http.StatusMovedPermanently)
 }
 
-func Result(w http.ResponseWriter, r *http.Request){
-	InitTemp.Temp.ExecuteTemplate(w, "result", act)
-}
+
